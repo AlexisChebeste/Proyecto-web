@@ -1,0 +1,17 @@
+:root{
+    --primary-color: #5EB9F0;
+    --heading-color: #343F52;
+    --paragraph-color: #60697B;
+    --skyblue: #E5F4FD;
+    --white: #fff;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Urbanist", sans-serif;
+}
