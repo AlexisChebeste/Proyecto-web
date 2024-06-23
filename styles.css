@@ -57,16 +57,40 @@ h3{
     line-height: 32px;
 }
 
+img {
+    width: 100%;
+}
+
+
 nav{
     
     padding: 20px 0;
 
 }
 
+
 .nav-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    & ul {
+        display: none;
+        position: absolute;
+        background-color: var(--primary-color);
+        top: 0;
+        left: 0;
+        height: 100vh;
+        /* display: flex; */
+        flex-direction: column;
+        padding: 20px 0;
+        text-align: center;
+        width: 100%;
+
+        & a {
+            color: var(--white);
+        }
+    }
 }
 
 p{
@@ -113,6 +137,7 @@ ul{
 .container{
     max-width: 1280px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 /*FAQ Styles*/
@@ -129,8 +154,8 @@ ul{
 
 .faqs-container{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 80px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
 }
 
 .faqs-list{
@@ -151,12 +176,9 @@ ul{
 .footer-container{
     align-items: center;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    & .btn-primary{
-        justify-self: end;
-        margin-right: 30px;
-    }
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+    
 }
 
 /*Hero Styles*/
@@ -177,6 +199,7 @@ ul{
 
 .hero-container{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 30px;
 }
@@ -194,8 +217,8 @@ ul{
 
 .project-container{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
 }
 
 .project-item{
@@ -230,7 +253,8 @@ ul{
 
 .service-list{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    gap: 50px;
 }
 
 .service-item{
@@ -243,7 +267,7 @@ ul{
         text-decoration: none;
     }
     & img{
-        min-height: 230px;
+        max-height: 230px;
     }
     & p {
         max-width: 317px;
@@ -270,7 +294,7 @@ ul{
     align-items: center;
     display: grid;
     gap: 40px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     
 }
 
@@ -289,14 +313,6 @@ ul{
     max-width: 520px;
     padding: 20px;
     position: relative;
-
-    &:nth-child(2){
-        left: 50px;
-    }
-
-    &:nth-child(3){
-        left: 20px;
-    }
 
     & .order{
         background-color: var(--skyblue); 
@@ -319,7 +335,8 @@ ul{
 
 .team-container{
     display: grid;
-    grid-template-columns: 1fr 2fr auto;
+    grid-template-columns: repeat(1, 1fr);
+    
     gap: 20px;
 }
 
@@ -327,7 +344,7 @@ ul{
     background-color: var(--white);
     box-shadow: 1px .1rem .5rem 0px rgb(60 60 60 / 12%);
     padding: 20px;
-    max-width: 300px;
+
     & h3 {
         font-size: 20px;
     
@@ -336,24 +353,30 @@ ul{
             text-transform: uppercase;
         }
     }
+
+    & img{
+        width: 100px;
+    }
 }
 
 .team-list{
     display: grid;
     grid-column: 1 / -1;
     gap: 20px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     
 }
 
 .team-statistics{
     display: flex;
-    gap: 100px;
+    flex-wrap: wrap;
+
 }
 
 .team-statistics-item{
     display: flex;
     flex-direction: column;
+    flex: 1;
     gap: 10px;
     align-items: center;
     text-align: center;
@@ -383,7 +406,7 @@ ul{
 
 .testimonials-list{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 20px;
 }
 
@@ -393,6 +416,7 @@ ul{
     & p {
         font-size: 18px;
     }
+    
 }
 
 .testimonials-author{
@@ -402,5 +426,90 @@ ul{
     margin-top: 30px;
     & img{
         max-width: 70px;
+    }
+}
+
+
+@media (min-width: 768px) {
+
+    .footer-container{
+        grid-template-columns: repeat(2, 1fr);
+        & .btn-primary{
+            justify-self: end;
+            margin-right: 30px;
+        }
+    }
+
+    .hero-container{
+        flex-wrap: nowrap;
+        & h1{
+            font-size: 40px;
+        }
+
+        & p {
+            font-size: 18px;
+        }
+    }
+
+
+    .project-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .strategy-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+
+    .team-list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-statistics{  
+        gap: 10px;
+    }
+
+    .testimonials-list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    
+}
+
+@media (min-width: 1024px) {
+
+    .faqs-container{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 80px;
+    }
+
+    .service-list{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    
+    
+    .team-container{
+        grid-template-columns: 1fr 2fr auto;
+    }
+
+    .team-list{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .testimonials-list{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .strategy-card{
+        &:nth-child(2){
+            left: 50px;
+        }
+
+        &:nth-child(3){
+            left: 20px;
+        }
     }
 }
